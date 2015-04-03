@@ -19,3 +19,15 @@ cpuprog.o: cpuprog.c
 clean:
 	rm -f cpuprog
 	rm -f *.o
+
+results:
+	mkdir ../results
+	echo "Running CPU bound, small (100), SCHED_OTHER"
+	sudo /usr/bin/time --verbose --output=../results/cpu_s_other ./cpuprog 100 SCHED_OTHER
+	echo "Running CPU bound, small (100), SCHED_FIFO"
+	sudo /usr/bin/time --verbose --output=../results/cpu_s_fifo ./cpuprog 100 SCHED_FIFO
+	echo "Running CPU bound, small (100), SCHED_RR"
+	sudo /usr/bin/time --verbose --output=../results/cpu_s_rr ./cpuprog 100 SCHED_RR
+
+results-clean:
+	rm -rf ../results
