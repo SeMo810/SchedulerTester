@@ -10,9 +10,8 @@
  */
 
 #include "mersenne.h"
+#include "sched_util.h"
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
 #include <errno.h>
 #include <time.h>
@@ -25,14 +24,24 @@ void run_calculations();
 
 int main(int argc, char** argv)
 {
-	if (argc != 2)
+	if (argc != 3)
 	{
-		printf("Usage: \".\\cpuprog <number_of_children>\"");
+		printf("Usage: \".\\cpuprog <number_of_children> <sched_policy>\"");
 		exit(EXIT_FAILURE);
 	}
 	int numChildren = atoi(argv[1]); /* Convert to number of children to spawn. */
+	schedinfo policy;
+	/* Set the policy */
+	if (!schedutil_parse_policy(argv[2], &policy))
+	{
+		exit(EXIT_FAILURE);
+	}
+	if (!schedutil_implement_policy(&policy))
+	{
+		exit(EXIT_FAILURE);
+	}
 	
-	printf("Spawning %d children.\n", numChildren);
+	printf("Spawning %d children, using the scheduler policy %s.\n", numChildren, argv[2]);
 
 	/* Spawn the children processes */
 	int i;
