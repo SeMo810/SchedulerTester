@@ -19,10 +19,14 @@ sched_util.o: sched_util.c
 cpuprog.o: cpuprog.c
 	$(CC) $(CFLAGS) $<
 
-ioprog.o: ioprog.c
+ioprog.o: ioprog.c ioinput
 	$(CC) $(CFLAGS) $<
+
+ioinput: Makefile
+	dd bs=1024 count=1 < /dev/urandom > data/datainput.dat
 
 clean:
 	rm -f ioprog
 	rm -f cpuprog
 	rm -f *.o
+	rm -f data/datainput.dat

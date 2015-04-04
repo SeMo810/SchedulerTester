@@ -20,6 +20,9 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 
+#define FILENAMELENGTH 64
+#define INPUTDATABUFFERSIZE 1024
+#define OUTPUTDATASIZE 102400
 #define INPUTFILENAME "data/datainput.dat"
 #define OUTPUTFILENAME "data/dataoutput%d.dat"
 
@@ -56,9 +59,13 @@ int main(int argc, char** argv)
                 pid_t pid = fork();
                 if (pid == 0) /* Child */
                 {
-                        run_calculations();
+                        run_process();
                         exit(EXIT_SUCCESS);
                 }
+		else
+		{
+			++child_number;
+		}
         }
 
 	/* Wait for all children to finish */
@@ -94,5 +101,43 @@ int main(int argc, char** argv)
 
 void run_process()
 {
-	
+	int inputFD;
+	int outputFD;
+	char outputName[FILENAMELENGTH];
+	char* transferBuffer = NULL;
+
+	sprintf(outputName, OUTPUTFILENAME, child_number); /* Create the output file name. */
+	/* Allocate the buffer. */
+	if (!(transferBuffer = (char*)malloc(INPUTDATABUFFERSIZE * sizeof(*transferBuffer))))
+	{
+		printf("Could not allocate the transfer buffer for child %d.\n", child_number);
+		exit(EXIT_FAILURE);
+	}
+
+	/* Open input file descriptor in read only */
+	if ((inputFD = open(INPUTFILENAME, O_RDONLY | O_SYNC)) < 0)
+	{
+		printf("Failed to open input file.\n");
+		exit(EXIT_FAILURE);
+	}
+	/* Open output file descriptor in write only mode */
+	if ((outputFD = open(outputName, O_WRONLY | O_CREAT | O_TRUNC | O_SYNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)) < 0)
+	{
+		printf("Failed to open output file %s.\n", outputName);
+		exit(EXIT_FAILURE);
+	}
+
+	/* TODO	*/
+
+	free(transferBuffer);
+	if (close(outputFD))
+	{
+		printf("Failed to close output file %s.\n", outputName);
+		exit(EXIT_FAILURE);
+	}
+	if (close(inputFD))
+	{
+		printf("Failed to close input file.\n");
+		exit(EXIT_FAILURE);
+	}
 }
