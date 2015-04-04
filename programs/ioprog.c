@@ -127,8 +127,38 @@ void run_process()
 		exit(EXIT_FAILURE);
 	}
 
-	/* TODO	*/
+	/* Read into buffer and write out to files. */
+	ssize_t amtRead = 0;
+	ssize_t bytesRead = 0;
+	ssize_t bytesWritten = 0;
+	do
+	{
+		bytesRead = read(inputFD, transferBuffer, INPUTDATABUFFERSIZE);
+		if (bytesRead < 0)
+		{
+			printf("Failed to read from the input file.\n");
+			exit(EXIT_FAILURE);
+		}
+		else
+		{
+			amtRead += bytesRead;
+		}
 
+		bytesWritten = write(outputFD, transferBuffer, bytesRead);
+		if (bytesWritten < 0)
+		{
+			printf("Failed to write to the output file %s.\n", outputName);
+			exit(EXIT_FAILURE);
+		}
+		if (lseek(inputFD, 0, SEEK_SET))
+		{
+			printf("Failed to reset input file to the beginning.\n");
+			exit(EXIT_FAILURE);
+		}
+	}
+	while (amtRead < OUTPUTDATASIZE);
+	
+	/* Free buffer and close files */
 	free(transferBuffer);
 	if (close(outputFD))
 	{

@@ -29,4 +29,4 @@ clean:
 	rm -f ioprog
 	rm -f cpuprog
 	rm -f *.o
-	rm -f data/datainput.dat
+	rm -f data/*
