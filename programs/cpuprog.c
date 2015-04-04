@@ -26,7 +26,7 @@ int main(int argc, char** argv)
 {
 	if (argc != 3)
 	{
-		printf("Usage: \".\\cpuprog <number_of_children> <sched_policy>\"");
+		printf("Usage: \".\\cpuprog <number_of_children> <sched_policy>\"\n");
 		exit(EXIT_FAILURE);
 	}
 	int numChildren = atoi(argv[1]); /* Convert to number of children to spawn. */
@@ -56,17 +56,31 @@ int main(int argc, char** argv)
 	}
 
 	/* Wait for all children to finish */
-	pid_t status;
-	do
+	while (1)
 	{
+		pid_t status;
 		pid_t done = wait(&status);
-		if (done == -1 && errno != ECHILD)
+		if (done == -1)
 		{
-			printf("Error during wait()");
-			abort();
+			if (errno == ECHILD)
+			{
+				break; /* No more child processes */
+			}
+			else
+			{
+				printf("Waiting for child failed.\n");
+				abort();
+			}
+		}
+		else
+		{
+			if (!WIFEXITED(status) || WEXITSTATUS(status) != 0)
+			{
+				printf("Waiting for pid %d failed.\n", done);
+				abort();
+			}
 		}
 	}
-	while (status > 0);
 
 	return 0;
 }
