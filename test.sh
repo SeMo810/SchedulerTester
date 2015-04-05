@@ -57,6 +57,27 @@ cd programs
 #echo "===> Running IO, large (1000), SCHED_RR..."
 #sudo /usr/bin/time --verbose --output=../results/io_l_rr.res ./ioprog 1000 SCHED_RR
 
+echo "===> Running MIX, small (10), SCHED_OTHER..."
+sudo /usr/bin/time --verbose --output=../results/mx_s_other.res ./mxprog 10 SCHED_OTHER
+echo "===> Running MIX, small (10), SCHED_FIFO..."
+sudo /usr/bin/time --verbose --output=../results/mx_s_fifo.res ./mxprog 10 SCHED_FIFO
+echo "===> Running MIX, small (10), SCHED_RR..."
+sudo /usr/bin/time --verbose --output=../results/mx_s_rr.res ./mxprog 10 SCHED_RR
+
+echo "===> Running MIX, medium (100), SCHED_OTHER..."
+sudo /usr/bin/time --verbose --output=../results/mx_m_other.res ./mxprog 100 SCHED_OTHER
+echo "===> Running MIX, medium (100), SCHED_FIFO..."
+sudo /usr/bin/time --verbose --output=../results/mx_m_fifo.res ./mxprog 100 SCHED_FIFO
+echo "===> Running MIX, medium (100), SCHED_RR..."
+sudo /usr/bin/time --verbose --output=../results/mx_m_rr.res ./mxprog 100 SCHED_RR
+
+echo "===> Running MIX, large (1000), SCHED_OTHER..."
+sudo /usr/bin/time --verbose --output=../results/mx_l_other.res ./mxprog 1000 SCHED_OTHER
+echo "===> Running MIX, large (1000), SCHED_FIFO..."
+sudo /usr/bin/time --verbose --output=../results/mx_l_fifo.res ./mxprog 1000 SCHED_FIFO
+echo "===> Running MIX, large (1000), SCHED_RR..."
+sudo /usr/bin/time --verbose --output=../results/mx_l_rr.res ./mxprog 1000 SCHED_RR
+
 cd ..
 
 echo "======================================================================"
