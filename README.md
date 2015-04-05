@@ -12,4 +12,4 @@ All of this should be done from the root directory.
 * Run `./test.sh`, this will run the tests on each program, with each count of children, and with each scheduler policy.
   * This will output files to a `results` folder.
 * Run `python graph.py`, this will generate the final graphs and put them into the report directory.
-  * **NOTE**: You need to install plot.ly in the python libraries, using `sudo pip install plotly` for this to work.
+  * **NOTE**: You need to install plot.ly in the python libraries, see (the plotly website)[https://plot.ly/python/getting-started].
