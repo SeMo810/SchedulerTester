@@ -174,13 +174,13 @@ def main():
     make_context_graph("OTHER", other_ivol, other_vol)
     make_context_graph("RR", rr_ivol, rr_vol)
     # Make the time graphs
-    fifo_utime = [ results[0][6] / 10, results[3][3] / 100 , results[6][3] / 1000, results[9][3] / 10, results[12][3] / 100, results[15][3] / 1000,
+    fifo_utime = [ results[0][3] / 10, results[3][3] / 100 , results[6][3] / 1000, results[9][3] / 10, results[12][3] / 100, results[15][3] / 1000,
         results[18][3] / 10, results[21][3] / 100, results[24][3] / 1000 ]
     other_utime = [ results[1][3] / 10, results[4][3] / 100, results[7][3] / 1000, results[10][3] / 10, results[13][3] / 100, results[16][3] / 1000,
         results[19][3] / 10, results[22][3] / 100, results[25][3] / 1000 ]
     rr_utime = [ results[2][3] / 10, results[5][3] / 100, results[8][3] / 1000, results[11][3] / 10, results[14][3] / 100, results[17][3] / 1000,
         results[20][3] / 10, results[23][3] / 100, results[26][3] / 1000 ]
-    fifo_rtime = [ results[0][6] / 10, results[3][5] / 100 , results[6][5] / 1000, results[9][5] / 10, results[12][5] / 100, results[15][5] / 1000,
+    fifo_rtime = [ results[0][5] / 10, results[3][5] / 100 , results[6][5] / 1000, results[9][5] / 10, results[12][5] / 100, results[15][5] / 1000,
         results[18][5] / 10, results[21][5] / 100, results[24][5] / 1000 ]
     other_rtime = [ results[1][5] / 10, results[4][5] / 100, results[7][5] / 1000, results[10][5] / 10, results[13][5] / 100, results[16][5] / 1000,
         results[19][5] / 10, results[22][5] / 100, results[25][5] / 1000 ]

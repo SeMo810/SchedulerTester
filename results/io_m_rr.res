@@ -1,8 +1,8 @@
 	Command being timed: "./ioprog 100 SCHED_RR"
-	User time (seconds): 0.17
-	System time (seconds): 2.59
-	Percent of CPU this job got: 25%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.77
+	User time (seconds): 0.22
+	System time (seconds): 3.18
+	Percent of CPU this job got: 30%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:11.21
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
@@ -10,8 +10,8 @@
 	Maximum resident set size (kbytes): 512
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 8076
-	Voluntary context switches: 29988
+	Minor (reclaiming a frame) page faults: 8075
+	Voluntary context switches: 29839
 	Involuntary context switches: 1
 	Swaps: 0
 	File system inputs: 0

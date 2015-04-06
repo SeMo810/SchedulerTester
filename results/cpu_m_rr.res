@@ -1,8 +1,8 @@
 	Command being timed: "./cpuprog 100 SCHED_RR"
-	User time (seconds): 13.08
-	System time (seconds): 0.97
-	Percent of CPU this job got: 190%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:07.36
+	User time (seconds): 13.19
+	System time (seconds): 0.96
+	Percent of CPU this job got: 191%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:07.40
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
@@ -11,8 +11,8 @@
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 6202
-	Voluntary context switches: 132
-	Involuntary context switches: 74
+	Voluntary context switches: 104
+	Involuntary context switches: 72
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 0

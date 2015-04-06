@@ -1,8 +1,8 @@
 	Command being timed: "./cpuprog 10 SCHED_OTHER"
-	User time (seconds): 1.27
-	System time (seconds): 0.10
-	Percent of CPU this job got: 192%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.72
+	User time (seconds): 1.29
+	System time (seconds): 0.09
+	Percent of CPU this job got: 187%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.73
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
@@ -10,9 +10,9 @@
 	Maximum resident set size (kbytes): 588
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 804
+	Minor (reclaiming a frame) page faults: 823
 	Voluntary context switches: 21
-	Involuntary context switches: 366
+	Involuntary context switches: 398
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 0
