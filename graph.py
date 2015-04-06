@@ -167,7 +167,7 @@ def main():
     fifo_vol = [ results[0][6], results[3][6], results[6][6], results[9][6], results[12][6], results[15][6], results[18][6], results[21][6], results[24][6] ]
     other_vol = [ results[1][6], results[4][6], results[7][6], results[10][6], results[13][6], results[16][6], results[19][6], results[22][6], results[25][6] ]
     rr_vol = [ results[2][6], results[5][6], results[8][6], results[11][6], results[14][6], results[17][6], results[20][6], results[23][6], results[26][6] ]
-    fifo_ivol = [ results[0][7], results[3][7], results[7][7], results[9][7], results[12][7], results[15][7], results[18][7], results[21][7], results[24][7] ]
+    fifo_ivol = [ results[0][7], results[3][7], results[6][7], results[9][7], results[12][7], results[15][7], results[18][7], results[21][7], results[24][7] ]
     other_ivol = [ results[1][7], results[4][7], results[7][7], results[10][7], results[13][7], results[16][7], results[19][7], results[22][7], results[25][7] ]
     rr_ivol = [ results[2][7], results[5][7], results[8][7], results[11][7], results[14][7], results[17][7], results[20][7], results[23][7], results[26][7] ]
     make_context_graph("FIFO", fifo_ivol, fifo_vol)
